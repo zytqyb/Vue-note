@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>13-组件访问-父访问子-children</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn></cpn>
+
+      <cpn ></cpn>
+
+      <cpn ref="aaa"></cpn>
+      <button @click="btnClick">按钮</button>
+    </div>
+    <template id="cpn">
+      <div>我是子组件</div>
+    </template>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好',
+        },
+        methods: {
+          btnClick() {
+            // console.log(this.$children)
+            // for (let c of this.$children) {
+            //   console.log(c.name)
+            //   c.showMessage()
+            // }
+            // console.log(this.$children[2].name);
+
+            // 2. $refs
+            console.log(this.$refs);
+
+          },
+        },
+        components: {
+          cpn: {
+            template: '#cpn',
+            data() {
+              return {
+                name: '我是子组件的name',
+              }
+            },
+            methods: {
+              showMessage() {
+                console.log('showMessage')
+              },
+            },
+          },
+        },
+      })
+    </script>
+  </body>
+</html>

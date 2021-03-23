@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01-v-model的基本使用</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="message">
+    <input type="text" v-model="message">
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好'
+      },
+      created()	{ // 实例被创建之后执行代码
+
+      },
+      computed: { // 计算属性
+
+      },
+      components: { // 组件的引用
+
+      },
+      methods: { // 方法
+
+      },
+      mounted()	{ // 页面进入时加载内容
+
+      },
+      watch: { // 监测变化
+
+      }
+    });
+
+  </script>
+</body>
+
+</html>

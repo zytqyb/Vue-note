@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>01-v-on的基本使用</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>{{counter}}</h2>
+      <button v-on:click="increment">+</button>
+      <button v-on:click="decrement">-</button>
+      <h2>语法糖</h2>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          counter: 0,
+        },
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+          increment() {
+            this.counter++
+          },
+          decrement() {
+            this.counter--
+          },
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+  </body>
+</html>

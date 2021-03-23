@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>08-组件通信-父组件向子组件传递数据</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <cpn :cmovies="movies"></cpn> -->
+
+      <cpn :cmovies="movies" :cmessage="message"></cpn>
+    </div>
+
+    <template id="cpn">
+      <div>
+        <ul>
+          <li v-for="item in cmovies">{{item}}</li>
+        </ul>
+        <h2>{{cmessage}}</h2>
+      </div>
+    </template>
+    <script>
+      // 父传子: props
+      const cpn = {
+        template: `#cpn`,
+        // props: ['cmovies', 'cmessage'],
+        props: {
+          // 1.类型的限制
+          // cmovies: Array,
+          // cmessage: String,
+
+          // 2.提供默认值
+          // 类型是对象或者数组时,默认值必须是一个函数,高版本似乎并不需要
+          cmovies: {
+            type: Array,
+            // default: ['默认1', '默认2', '默认3'], // 如果报错可使用函数返回值的形式
+            default() {
+              return ['默认1', '默认2', '默认3']
+            },
+          },
+
+          cmessage: {
+            type: String,
+            default: '默认值',
+            required: true,
+          },
+        },
+      }
+
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好',
+          movies: ['海王', '蜘蛛侠', '钢铁侠'],
+        },
+        components: {
+          cpn,
+        },
+      })
+    </script>
+  </body>
+</html>

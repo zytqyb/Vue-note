@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>03-v-on的修饰符</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1. .stop修饰符的使用 -->
+      <div @click="divClick">
+        aaa
+        <button @click.stop="btnClick">按钮</button>
+      </div>
+
+      <br />
+
+      <!-- 2. .prevent修饰符的使用 -->
+      <form action="baidu">
+        <input type="submit" value="提交" @click.prevent="submitClick" />
+      </form>
+      <br />
+      <!-- 3. .监听某个键盘按键的点击 -->
+      <input type="text" @keyup.enter="keyUp" />
+      <!-- 4. .once修饰符的使用-->
+      <button @click.once="btn2Click">按钮2</button>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {},
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+          btnClick() {
+            console.log('btnClick')
+          },
+          divClick() {
+            console.log('divClick')
+          },
+          submitClick() {
+            console.log('submitClick')
+          },
+          keyUp() {
+            console.log('keyUp')
+          },
+          btn2Click() {
+            console.log('btn2Click')
+          },
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+  </body>
+</html>

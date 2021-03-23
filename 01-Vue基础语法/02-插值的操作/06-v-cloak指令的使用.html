@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>06-v-cloak指令的使用</title>
+    <script src="../js/vue.js"></script>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app" v-cloak>{{message}}</div>
+
+    <script>
+      // 在vue解析之前div中有一个属性v-cloak
+      // 在vue解析之后div中没有一个属性v-cloak
+      setTimeout(function () {
+        const app = new Vue({
+          el: '#app',
+          data: {
+            message: '你好啊',
+          },
+          created() {
+            // 实例被创建之后执行代码
+          },
+          computed: {
+            // 计算属性
+          },
+          components: {
+            // 组件的引用
+          },
+          methods: {
+            // 方法
+          },
+          mounted() {
+            // 页面进入时加载内容
+          },
+          watch: {
+            // 监测变化
+          },
+        })
+      }, 1000)
+    </script>
+  </body>
+</html>

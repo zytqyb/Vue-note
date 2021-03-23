@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>05-v-model结合select</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1. 选择一个 -->
+      <select name="abc" v-model="fruit">
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="草莓">草莓</option>
+        <option value="雪梨">雪梨</option>
+        <option value="蓝莓">蓝莓</option>
+      </select>
+      <h2>您选择的水果是: {{fruit}}</h2>
+
+      <!-- 2. 选择多个 -->
+      <select name="abc" v-model="fruit" multiple>
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="草莓">草莓</option>
+        <option value="雪梨">雪梨</option>
+        <option value="蓝莓">蓝莓</option>
+      </select>
+      <h2>您选择的水果是: {{fruit}}</h2>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          fruit: '香蕉',
+        },
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+  </body>
+</html>

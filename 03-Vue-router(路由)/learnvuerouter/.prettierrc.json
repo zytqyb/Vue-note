@@ -1,0 +1,11 @@
+{
+  "singleQuote": true,
+
+  "semi": false,
+
+  "bracketSpacing": true,
+
+  "htmlWhitespaceSensitivity": "ignore",
+
+  "trailingComma": "es5"
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>02-计算属性的复杂操作</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>总价格: {{totalPrice}}</h2>
+      <h2>总价格: {{gettotalPrice()}}</h2>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          books: [
+            { id: 110, name: 'Unix编程艺术', price: 119 },
+            { id: 111, name: '代码大全', price: 105 },
+            { id: 112, name: '深入理解计算机原理', price: 110 },
+            { id: 113, name: '现代操作系统', price: 120 },
+          ],
+        },
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+          totalPrice: function () {
+            let result = 0
+            for (let i = 0; i < this.books.length; i++) {
+              result += this.books[i].price
+            }
+            return result
+          },
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+          gettotalPrice: function () {
+            let result = 0
+            for (let i = 0; i < this.books.length; i++) {
+              result += this.books[i].price
+            }
+            return result
+          },
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+  </body>
+</html>

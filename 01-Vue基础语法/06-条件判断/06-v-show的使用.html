@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>06-v-show的使用</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2 id="aaa" v-if="isShow">{{message}}</h2>
+      <h2 id="bbb" v-show="isShow">{{message}}</h2>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好',
+          isShow: true,
+        },
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+    <script type="text/javascript">
+      let rs = []
+      let weekRange = '9-16'
+      let begin = weekRange.split('-')[0]
+      let end = weekRange.split('-')[1]
+      for (let i = Number(begin); i < Number(end) + 1; i++) {
+        rs.push(i)
+      }
+      console.log(rs)
+    </script>
+  </body>
+</html>

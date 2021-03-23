@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>04-v-model结合checkbox</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1.checkbox单选框 -->
+      <!-- <label for="protocol">
+        <input type="checkbox" id="protocol" v-model="isProtocol" />同意协议
+      </label>
+      <h2>你选择的是: {{isProtocol}}</h2>
+      <button :disabled="!isProtocol">下一步</button> -->
+
+      <!-- 2.checkbox多选框 -->
+      <input type="checkbox" value="篮球" v-model="hobbies" />篮球
+      <input type="checkbox" value="足球" v-model="hobbies" />足球
+      <input type="checkbox" value="乒乓球" v-model="hobbies" />乒乓球
+      <input type="checkbox" value="羽毛球" v-model="hobbies" />羽毛球
+      <h2>您的爱好是: {{hobbies}}</h2>
+
+      <label v-for="item in originHobbies" :for="item">
+        <input type="checkbox" :value="item" id="item" v-model="hobbies" />
+        {{item}}
+      </label>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          isProtocol: false,
+          hobbies: [],
+          originHobbies: [
+            '篮球',
+            '足球',
+            '乒乓球',
+            '羽毛球',
+            '台球',
+            '高尔夫球',
+          ],
+        },
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+  </body>
+</html>

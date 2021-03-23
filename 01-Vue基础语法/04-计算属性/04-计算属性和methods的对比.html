@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>04-计算属性和methods的对比</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 第一种方案是我们直接拼接 过于繁琐-->
+      <h2>{{firstName}} {{lastName}}</h2>
+      <!-- 第二种是方案是使用方法凭借 -->
+      <h2>{{getFullName()}}</h2>
+      <h2>{{getFullName()}}</h2>
+      <h2>{{getFullName()}}</h2>
+      <h2>{{getFullName()}}</h2>
+
+      <!-- 第三种方法是计算属性(computed) -->
+      <h2>{{fullName}}</h2>
+      <h2>{{fullName}}</h2>
+      <h2>{{fullName}}</h2>
+      <h2>{{fullName}}</h2>
+    </div>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          firstName: 'Kobe',
+          lastName: 'Bryant',
+        },
+        created() {
+          // 实例被创建之后执行代码
+        },
+        computed: {
+          // 计算属性
+          fullName: function () {
+            console.log('计算属性调用次数')
+            return this.firstName + ' ' + this.lastName
+          },
+        },
+        components: {
+          // 组件的引用
+        },
+        methods: {
+          // 方法
+          getFullName: function () {
+            console.log('方法调用次数')
+            return this.firstName + ' ' + this.lastName
+          },
+        },
+        mounted() {
+          // 页面进入时加载内容
+        },
+        watch: {
+          // 监测变化
+        },
+      })
+    </script>
+  </body>
+</html>

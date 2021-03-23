@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>03-父组件和子组件</title>
+    <script src="../js/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <cpn2></cpn2>
+    </div>
+
+    <script>
+      const cpnC1 = Vue.extend({
+        template: `
+          <div>
+            <h2>我是标题</h2>
+            <p>哈哈哈哈</p>
+          </div>
+        `,
+      })
+
+      const cpnC2 = Vue.extend({
+        template: `
+          <div>
+            <h2>我是标题2</h2>
+            <p>哈哈哈哈2</p>
+            <cpn1></cpn1>
+          </div>
+        `,
+        components: {
+          cpn1: cpnC1,
+        },
+      })
+
+      const app = new Vue({
+        el: '#app',
+        data: {},
+        components: {
+          cpn2: cpnC2,
+        },
+      })
+    </script>
+  </body>
+</html>
