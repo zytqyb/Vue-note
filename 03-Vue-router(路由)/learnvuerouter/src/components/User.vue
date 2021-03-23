@@ -18,10 +18,10 @@ export default {
     },
   },
   // 组件被创建后调用
-  created() {
-    console.log('created')
-    document.title = '用户'
-  },
+  // created() {
+  //   console.log('created')
+  //   document.title = '用户'
+  // },
   methods: {
     btnClick() {
       // 所有的组件都继承着Vue类的原型

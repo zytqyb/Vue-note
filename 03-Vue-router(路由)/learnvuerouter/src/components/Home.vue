@@ -19,10 +19,10 @@ export default {
     }
   },
   // 组件被创建后调用
-  created() {
-    console.log('created');
-    document.title = '首页'
-  },
+  // created() {
+  //   console.log('created');
+  //   document.title = '首页'
+  // },
   // // 组件被挂载到整个dom后调用
   // mounted() {
   //   console.log('mounted');

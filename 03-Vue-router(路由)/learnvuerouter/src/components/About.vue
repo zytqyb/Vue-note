@@ -9,10 +9,10 @@
 export default {
   name: 'About',
   // 组件被创建后调用
-  created() {
-    console.log('created');
-    document.title = '关于'
-  },
+  // created() {
+  //   console.log('created');
+  //   document.title = '关于'
+  // },
 }
 </script>
 
