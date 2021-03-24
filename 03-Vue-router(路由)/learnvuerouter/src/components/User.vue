@@ -18,10 +18,14 @@ export default {
     },
   },
   // 组件被创建后调用
-  // created() {
-  //   console.log('created')
-  //   document.title = '用户'
-  // },
+  created() {
+    console.log('User created')
+    document.title = '用户'
+  },
+  // 销毁后调用
+  destroyed() {
+    console.log('User destroyed')
+  },
   methods: {
     btnClick() {
       // 所有的组件都继承着Vue类的原型

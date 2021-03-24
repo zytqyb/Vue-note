@@ -9,10 +9,14 @@
 export default {
   name: 'About',
   // 组件被创建后调用
-  // created() {
-  //   console.log('created');
-  //   document.title = '关于'
-  // },
+  created() {
+    console.log('About created')
+    document.title = '关于'
+  },
+  // 销毁后调用
+  destroyed() {
+    console.log('About destroyed')
+  },
 }
 </script>
 
