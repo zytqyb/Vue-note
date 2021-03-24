@@ -29,10 +29,10 @@ const routes = [
       title: '首页',
     },
     children: [
-      {
-        path: '/',
-        redirect: 'news',
-      },
+      // {
+      //   path: '/',
+      //   redirect: 'news',
+      // },
       {
         path: 'news',
         component: HomeNews,
@@ -58,6 +58,7 @@ const routes = [
     },
     beforeEnter: (to, from, next) => {
       console.log('about beforeEnter')
+      next()
     },
   },
   {
@@ -80,14 +81,11 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // 从from跳转到to
   document.title = to.matched[0].meta.title
-  console.log('前置守卫(hook)')
   next()
 })
 
 // 后置钩子(hook)
-router.afterEach((to, from) => {
-  console.log('后置钩子(hook)')
-})
+router.afterEach((to, from) => {})
 
 // 3.将router对象传入到Vue实例中
 export default router
