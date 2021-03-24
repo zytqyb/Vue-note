@@ -16,7 +16,7 @@
     <button @click="userClick">用户</button>
     <button @click="profileClick">档案</button>
 
-    <keep-alive>
+    <keep-alive exclude="Profile,User">
       <router-view></router-view>
     </keep-alive>
   </div>
