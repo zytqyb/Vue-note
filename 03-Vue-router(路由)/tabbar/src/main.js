@@ -11,4 +11,4 @@ new Vue({
   render: h => h(App)
 })
 
-require('../src/assets/css/bsae.css')
+// require('../src/assets/css/bsae.css')

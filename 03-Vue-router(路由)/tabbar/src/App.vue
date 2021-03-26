@@ -1,26 +1,20 @@
 <template>
   <div id="app">
-    <tab-bar>
-      <tab-bar-item></tab-bar-item>
-      <tab-bar-item></tab-bar-item>
-      <tab-bar-item></tab-bar-item>
-      <tab-bar-item></tab-bar-item>
-    </tab-bar>
+    <router-view></router-view>
+    <main-tab-bar></main-tab-bar>
   </div>
 </template>
 
 <script>
-import TabBar from './components/tabbar/TabBar'
-import TabBarItem from './components/tabbar/TabBarItem'
+import MainTabBar from './components/mainTabBar/MainTabBar'
 export default {
   name: 'App',
   components: {
-    TabBar
-  }
+    MainTabBar,
+  },
 }
 </script>
 
 <style>
 @import './assets/css/bsae.css';
-
 </style>
