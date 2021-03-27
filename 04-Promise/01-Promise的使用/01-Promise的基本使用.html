@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>01-Promise的基本使用</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// 1.使用setTimeout
+		// setTimeout(() => {
+		// 	console.log('Hello world');
+		// }, 1000)
+
+		// 参数 -> 函数(resolve, reject)
+		// resolve,reject他们本身又是函数
+		// 链式编程
+		
+		new Promise((resolve, reject) => {
+			// 第一次网络请求的代码
+			setTimeout(() => {
+				resolve()
+			}, 1000)
+		}).then(() => {
+			// 第一次拿到结果的处理代码
+			console.log('Hello world');
+			console.log('Hello world');
+			console.log('Hello world');
+			console.log('Hello world');
+			console.log('Hello world');
+			console.log('Hello world');
+
+			return new Promise((resolve, reject) => {
+				// 第二次网络请求的代码
+				setTimeout(() => {
+					resolve()
+				}, 1000)
+			}).then(() => {
+				// 第二次拿到结果的处理代码
+				console.log('Hello vue');
+				console.log('Hello vue');
+				console.log('Hello vue');
+				console.log('Hello vue');
+				console.log('Hello vue');
+				console.log('Hello vue');
+
+				return new Promise((resolve, reject) => {
+					// 第三次网络请求的代码
+					setTimeout(() => {
+						resolve()
+					}, 1000)
+				}).then(() => {
+					// 第三次拿到结果的处理代码
+					console.log('Hello Python');
+					console.log('Hello Python');
+					console.log('Hello Python');
+					console.log('Hello Python');
+					console.log('Hello Python');
+					console.log('Hello Python');
+				})
+			})
+		})
+
+		// 什么情况下会用到Promise?
+		// 一般情况下是有异步操作时,使用Promise对这个异步操作进行封装
+		// nwe -> 构造函数(1.保存了一些状态信息 2.执行传入的函数)
+		// 在执行传入的回调函数时,会传入俩个参数,resolve,reject 本身又是函数
+		new Promise((resolve, reject) => {
+			setTimeout(() => {
+				// 成功的时候调用resolve
+				// resolve('Hello world')
+
+				// 失败的时候调用reject
+				reject('error, message')
+			}, 1000)
+		}).then((data) => {
+			// 1. 100行的处理代码
+			console.log(data);
+			console.log(data);
+			console.log(data);
+			console.log(data);
+		}).catch((error) => {
+			console.log(error);
+		})
+	</script>
+</body>
+
+</html>
