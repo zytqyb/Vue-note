@@ -14,14 +14,28 @@
     <h2>{{ $store.getters.more20stu }}</h2>
     <h2>{{ $store.getters.more20stuLength }}</h2>
     <h2>{{ $store.getters.moreAgeStu(8) }}</h2>
+
+    <h2>------ App内容 info对象的内容是否是响应式 ------</h2>
+    <h2>{{ $store.state.info }}</h2>
+    <button @click="updataInfo">修改信息</button>
+
+    <h2>----- App内容: modules中的内容 -----</h2>
+    <h2>{{ $store.state.a.name }}</h2>
+    <button @click="updateName">修改名字</button>
+    <h2>{{ $store.getters.fullname }}</h2>
+    <h2>{{ $store.getters.fullname2 }}</h2>
+    <h2>{{ $store.getters.fullname3 }}</h2>
+    <button @click="asyncUpdateName">异步修改名字</button>
+    
     <h2>----- HelloVuex内容 -----</h2>
     <hello-vuex></hello-vuex>
+
   </div>
 </template>
 
 <script>
 import HelloVuex from './components/HelloVuex'
-
+import { INCREMENT } from './store/mutations-types'
 export default {
   name: 'App',
 
@@ -49,12 +63,30 @@ export default {
       // this.$store.commit({
       //   type: 'incrementCount',
       //   count,
-        
+
       // })
     },
     addStudent() {
       const stu = { id: 114, name: 'cvb', age: 25 }
       this.$store.commit('addStudent', stu)
+    },
+    updataInfo() {
+      // this.$store.commit('updataInfo')
+      // this.$store.dispatch('aUpdataInfo', {
+      //   payload: '我是携带的信息',
+      //   success: () => {
+      //     console.log('cecccccc');
+      //   }
+      // })
+      this.$store.dispatch('aUpdataInfo', '我是携带的信息').then((res) => {
+        console.log(res);
+      })
+    },
+    updateName() {
+      this.$store.commit('updateName', '李四')
+    },
+    asyncUpdateName() {
+      this.$store.dispatch('aUpdateName')
     }
   },
   computed: {
