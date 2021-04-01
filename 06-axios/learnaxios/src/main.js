@@ -67,28 +67,61 @@ new Vue({
 // })
 
 // 4.创建对应的axios的实例
-const instancel = axios.create({
-  baseURL: 'http://152.136.185.210:7878/api/m5',
-  timeout: 5000,
-})
+// const instancel = axios.create({
+//   baseURL: 'http://152.136.185.210:7878/api/m5',
+//   timeout: 5000,
+// })
 
-instancel({
-  url: '/home/multidata',
+// instancel({
+//   url: '/home/multidata',
+// }).then(res => {
+//   console.log(res)
+// })
+
+// instancel({
+//   url: '/home/data',
+//   params: {
+//     type: 'pop',
+//     page: 1,
+//   },
+// }).then(res => {
+//   console.log(res)
+// })
+
+// const instancel2 = axios({
+//   baseURL: 'http://222.111.33.33:8000',
+//   timeout: 10000,
+// })
+
+// 5.封装一个request模块
+import { request } from './network/request'
+// 方案1的使用方式
+// request({
+//   url: '/home/multidata'
+// }, res => {
+//   console.log(res);
+// }, err => {
+//   console.log(err);
+// })
+
+// 方案2的使用方式
+// request({
+//   baseConfig: {
+//     url: '/home/multidata'
+//   },
+//   success: function(res) {
+//     console.log(res);
+//   },
+//   failure: function(err) {
+//     console.log(err);
+//   }
+// })
+
+// 最终方案使用方式
+request({
+  url: '/home/multidata'
 }).then(res => {
-  console.log(res)
-})
-
-instancel({
-  url: '/home/data',
-  params: {
-    type: 'pop',
-    page: 1,
-  },
-}).then(res => {
-  console.log(res)
-})
-
-const instancel2 = axios({
-  baseURL: 'http://222.111.33.33:8000',
-  timeout: 10000,
+  console.log(res);
+}).catch(err => {
+  // console.log(err);
 })
